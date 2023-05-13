@@ -1,0 +1,176 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+/* Reset CSS */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+* {
+margin: 0;
+}
+
+html, body {
+height: 100%;
+}
+
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+
+input, button, textarea, select {
+font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+
+#root, #__next {
+isolation: isolate;
+}
+
+/* General Styling */
+
+:root{
+    --dark-blue: hsl(233, 47%, 7%);  /* main background */
+    --desaturated-blue: hsl(244, 38%, 16%); /* Card Background*/
+    --soft-violet: hsl(277, 64%, 61%);  /* accent */
+    --white: hsl(0, 0%, 100%); /* main heading, stats */
+    --transparent-white: hsla(0, 0%, 100%, 0.75); /* main paragraph */
+    --slightly-transparent-white: hsla(0, 0%, 100%, 0.6); /* stat headings */
+
+    --inter: "Inter", sans-serif;
+    --lexend-deca: "Lexend Deca", sans-serif;
+}
+
+body{
+    background-color: var(--dark-blue);
+    font-family: var(--inter);
+}
+
+.card{
+    background-color: var(--desaturated-blue);
+    max-width: 1000px;
+    border-radius: 0.5rem;
+
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+    margin-top: 2.5rem;
+}
+
+@media(min-width:600px){
+    body{
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        justify-content: center;
+    }
+
+    .card{
+        grid-template-columns: 1fr 1fr;
+        place-content: center;
+        gap: 6rem;
+    }
+
+    .business{
+        order: -1;
+    }
+}
+
+.overlay{
+    position: relative;
+}
+
+picture > img{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.overlay::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(277, 64%, 25%, 0.75); 
+    pointer-events: none; 
+}
+
+
+@media(min-width:600px){
+    picture > img{
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0.5rem;
+    }
+}
+
+
+.business{
+    --content-padding: 2rem;
+    --content-spacing: 1.7rem;
+
+    padding: var(--content-padding);
+    display: grid;
+    place-content: center;
+    gap: var(--content-spacing);
+}
+
+
+.business__title{
+    color: var(--white);
+    font-size: 1.9rem;
+    text-align: center;
+}
+
+.insights{
+    color: var(--soft-violet);
+}
+
+.business__description{
+    color: var(--transparent-white);
+    text-align: center;
+    font-family: var(--lexend-deca);
+}
+
+@media(min-width:600px){
+    .business__title, .business__description{
+        text-align: unset;
+    }
+}
+
+.flex-group{
+    display: grid;
+    place-content: center;
+    color: var(--white);
+    margin-top: 1rem;
+    gap: var(--content-spacing);
+}
+
+.flex-group > div > h2{
+    font-weight: 700;
+}
+
+.flex-group > div > p{
+    font-weight: 15px;
+    opacity: 0.5;
+}
+
+@media(min-width:600px){
+    .flex-group{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
